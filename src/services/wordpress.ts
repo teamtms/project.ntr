@@ -18,7 +18,7 @@ import { IShop } from '@/interfaces/Shop'
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 
 export const request = async<T>(url: URL | string, init?: RequestInit | undefined): Promise<T> => {
-	const response = await fetch(url, { cache: 'reload' })
+	const response = await fetch(url, { cache: 'no-cache' })
 	const json: T = await response.json()
 
 	return json
