@@ -7,8 +7,21 @@ import styles from './page.module.scss'
 import { WpUsername } from '@/components/Wp/WpUsername/WpUsername.component'
 import { WpCategory } from '@/components/Wp/WpCategory/WpCategory.component'
 import { WpImage } from '@/components/Wp/WpImage'
+import { Metadata } from 'next'
 
 const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
+
+export const generateMetadata = async ({ params }: { params: { slug: string } }): Promise<Metadata> => {
+	const [post] = await wordpress.getPostBySlug(params.slug)
+
+	return {
+		title: `${post.title.rendered} - ТМС`,
+		description: post.excerpt.rendered,
+		openGraph: {
+			url: `https://thetms.ru/article/${params.slug}`
+		}
+	}
+}
 
 const Article = async ({ params }: { params: { slug: string } }) => {
 	const [article] = await wordpress.getPostBySlug(params.slug)
