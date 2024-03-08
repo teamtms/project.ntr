@@ -10,6 +10,7 @@
 
 body {
 	font-size: 14px;
+	font-family: 'Press Start 2P', sans-serif;
 }
 
 body>div {
@@ -18,4 +19,5 @@ body>div {
 
 * {
 	font-size: inherit;
+	font-family: inherit;
 }
