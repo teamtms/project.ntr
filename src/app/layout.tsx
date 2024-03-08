@@ -5,7 +5,7 @@ import { ReactNode, Suspense } from 'react'
 import { Header } from '@/components/Header'
 import { CubeLoader, PixieProvider } from 'pixieui/components'
 
-const pressStart2P = Press_Start_2P({ subsets: ['latin'], weight: ['400'] })
+const pressStart2P = Press_Start_2P({ subsets: ['latin', 'cyrillic'], weight: ['400'] })
 
 export const metadata: Metadata = {
   title: "ТМС",
