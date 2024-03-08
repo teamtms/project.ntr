@@ -1,7 +1,17 @@
 import { Container } from '@/components/Container'
-import Eval from '@/components/Eval/Eval.component'
-import { WpImage } from '@/components/WpImage/WpImage.component'
+import Eval from '@/components/Eval'
+import { WpImage } from '@/components/Wp/WpImage'
 import { wordpress } from '@/services/wordpress'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'ТМС',
+  description: 'Такое место, что даже слово сразу подобрать не получится',
+  openGraph: {
+    description: 'Такое место, что даже слово сразу подобрать не получится',
+    url: 'https://thetms.ru'
+  }
+}
 
 export default async function Home() {
   const data = await wordpress.getPageBySlug('tms')
@@ -51,7 +61,7 @@ export default async function Home() {
             <h2 className="text-2xl">Моменты</h2>
             <div className="grid gap-8 grid-cols-1 md:grid-cols-3 sm:grid-cols-2 mt-4">
               {data[0].acf.moments.length ? data[0].acf.moments.map((item) =>
-                <WpImage className="aspect-square object-cover rounded-md" key={item} imageId={item} />
+                <WpImage className="aspect-square object-cover" key={item} imageId={item} />
               ) : ''}
             </div>
           </div>
@@ -62,14 +72,14 @@ export default async function Home() {
               <p className="mt-2 text-[13px] [word-spacing:-4px]">Добро пожаловать в бюджетную больницу Minecraft. Это медицинское учреждение обеспечивает
                 игрокам и жителям города доступ к медицинским услугам по бесплатной цене. В нашей больнице одно отделение: палаты.</p>
             </div>
-            <div className="basis-1/2 ">
-              <img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-08_21.05.29.png" alt="" />
+            <div className="basis-1/2">
+              <img className="aspect-square object-cover" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-08_21.05.29.png" alt="" />
             </div>
           </div>
 
           <div className="mt-8 flex items-center gap-12 flex-col-reverse md:flex-row">
-            <div className="basis-1/2 ">
-              <img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-11_16.29.00.png" alt="" />
+            <div className="basis-1/2">
+              <img className="aspect-square object-cover" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/2024-01-11_16.29.00.png" alt="" />
             </div>
             <div className="basis-1/2">
               <h2 className="text-2xl">Городской суд</h2>
@@ -88,7 +98,7 @@ export default async function Home() {
               </p>
             </div>
             <div className="basis-1/2 ">
-              <img className="aspect-square object-cover rounded-md" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/kruta-nu-eto-zh-kruta.png" alt="" />
+              <img className="aspect-square object-cover" src="https://www.fb24m.ru/tms/wp-content/uploads/2024/01/kruta-nu-eto-zh-kruta.png" alt="" />
             </div>
           </div>
         </>

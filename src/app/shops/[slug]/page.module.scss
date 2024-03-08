@@ -1,0 +1,59 @@
+.goods {
+	display: grid;
+	grid-template-columns: repeat(4, 1fr);
+	gap: 24px;
+	margin-bottom: 64px;
+
+	@media (max-width: 768px) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+
+	@media (max-width: 560px) {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	@media (max-width: 425px) {
+		gap: 16px;
+	}
+}
+
+.container {
+	position: relative;
+}
+
+.welcome {
+	display: flex;
+	gap: 32px 24px;
+	align-items: center;
+	padding-block: 64px;
+
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
+}
+
+.content {
+	flex-basis: 50%;
+}
+
+.mainTitle {
+	margin-bottom: 16px;
+	font-size: 20px;
+}
+
+.description {
+	font-size: 12px;
+	display: flex;
+	flex-direction: column;
+	gap: 12px;
+}
+
+.image {
+	flex-basis: 50%;
+
+	img {
+		width: 100%;
+		aspect-ratio: 1/1;
+		object-fit: cover;
+	}
+}

@@ -1,0 +1,48 @@
+.image {
+	display: block;
+	aspect-ratio: 1/1;
+	object-fit: cover;
+	margin-bottom: 16px;
+}
+
+.goodTitle {
+	display: block;
+	font-size: 10px;
+	letter-spacing: -.04em;
+	margin-bottom: 8px;
+}
+
+.good {
+	transition: all .5s ease;
+	max-width: 100%;
+
+	&.opened {
+		grid-column-start: 2;
+		grid-column-end: 4;
+		display: flex;
+		align-items: flex-start;
+		gap: 16px;
+		flex-wrap: wrap;
+
+		@media (max-width: 560px) {
+			grid-column-start: 1;
+			grid-column-end: 3;
+		}
+	}
+}
+
+.description {
+	font-size: 12px;
+}
+
+.opened {
+	.main {
+		flex-basis: 200px;
+		flex-shrink: 0;
+		height: 200px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: flex-start;
+	}
+}

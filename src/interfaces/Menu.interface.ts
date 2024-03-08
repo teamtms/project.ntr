@@ -4,5 +4,11 @@ export interface IMenu {
 		ID: number
 		title: string
 		url: string
+
+		child_items?: {
+			ID: number
+			title: string
+			url: string
+		}[]
 	}[]
 }

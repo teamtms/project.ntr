@@ -1,0 +1,29 @@
+.title {
+	font-size: 18px;
+	margin-bottom: 4px;
+}
+
+.info {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 16px;
+}
+
+.label {
+	padding: 4px 8px;
+	font-size: 12px;
+	background-color: var(--background);
+}
+
+.description {
+	white-space: pre-wrap;
+	margin-bottom: 16px;
+}
+
+button#modpack_download.button {
+	background-color: var(--background);
+
+	&:hover {
+		background-color: var(--card-hover);
+	}
+}

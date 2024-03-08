@@ -13,11 +13,12 @@ import { ISiteInfo } from '@/interfaces/SiteInfo.interface'
 import { IMenu } from '@/interfaces/Menu.interface'
 import { IHomePage } from '@/interfaces/HomePage.interface'
 import { IComment } from '@/interfaces/Comment.interface'
+import { IShop } from '@/interfaces/Shop'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 
-const request = async<T>(url: URL | string, init?: RequestInit | undefined): Promise<T> => {
-	const response = await fetch(url, { cache: 'no-cache' })
+export const request = async<T>(url: URL | string, init?: RequestInit | undefined): Promise<T> => {
+	const response = await fetch(url, { cache: 'reload' })
 	const json: T = await response.json()
 
 	return json
@@ -49,4 +50,5 @@ export const wordpress = {
 	getCityBySlug: async (slug: string) => request<ICity[]>(`${API}/city?slug=${slug}`),
 	getMenuBySlug: async (slug: string) => request<IMenu>(`https://www.fb24m.ru/tms/wp-json/menus/v1/menus/${slug}`),
 	getPageBySlug: async (slug: string) => request<IHomePage[]>(`${API}/pages?slug=${slug}`),
+	getShopBySlug: async (slug: string) => request<IShop[]>(`${API}/shops?slug=${slug}`)
 }

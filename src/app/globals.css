@@ -1,3 +1,21 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+:root {
+	--background: #11141d;
+	--card: #1e2434;
+	--card-hover: #0a224f;
+}
+
+body {
+	font-size: 14px;
+}
+
+body>div {
+	min-height: 100vh;
+}
+
+* {
+	font-size: inherit;
+}
