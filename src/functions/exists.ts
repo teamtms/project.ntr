@@ -1,0 +1,1 @@
+export const exists = (str: string | undefined) => str ? str : ''

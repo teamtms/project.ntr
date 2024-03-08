@@ -1,0 +1,26 @@
+.eval {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+
+	ol {
+		counter-reset: ol;
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+
+		li {
+			text-indent: -15px;
+			padding-left: 15px;
+
+			&::before {
+				counter-increment: ol;
+				content: counter(ol) '. ';
+			}
+		}
+	}
+
+	img {
+		border-radius: 8px;
+	}
+}
