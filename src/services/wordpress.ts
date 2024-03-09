@@ -50,5 +50,6 @@ export const wordpress = {
 	getCityBySlug: async (slug: string) => request<ICity[]>(`${API}/city?slug=${slug}`),
 	getMenuBySlug: async (slug: string) => request<IMenu>(`https://www.fb24m.ru/tms/wp-json/menus/v1/menus/${slug}`),
 	getPageBySlug: async (slug: string) => request<IHomePage[]>(`${API}/pages?slug=${slug}`),
-	getShopBySlug: async (slug: string) => request<IShop[]>(`${API}/shops?slug=${slug}`)
+	getShopBySlug: async (slug: string) => request<IShop[]>(`${API}/shops?slug=${slug}`),
+	getGoLinkBySlug: async (slug: string) => request<{ slug: string, acf: { url: string } }[]>(`${API}/go?slug=${slug}`),
 }
