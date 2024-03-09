@@ -1,0 +1,58 @@
+.image {
+	width: 200px;
+	height: 200px;
+}
+
+.skeleton {
+	overflow: hidden;
+}
+
+.title {
+	margin-bottom: 16px;
+	height: 40px;
+	width: 90%;
+}
+
+.list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 8px 16px;
+	margin-bottom: 16px;
+}
+
+.li {
+	width: 200px;
+}
+
+.string1 {
+	width: 90%;
+	margin-bottom: 4px;
+}
+
+.string2 {
+	width: 100%;
+	margin-bottom: 4px;
+}
+
+.string3 {
+	width: 80%;
+}
+
+.card {
+	display: flex;
+	gap: 24px;
+
+	@media (max-width: 768px) {
+		flex-wrap: wrap;
+	}
+}
+
+.content {
+	width: 100%;
+}
+
+.addons {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+}

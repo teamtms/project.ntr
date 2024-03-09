@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Press_Start_2P } from 'next/font/google'
+import 'swiper/css'
 import './globals.css'
 import { ReactNode, Suspense } from 'react'
 import { Header } from '@/components/Header'

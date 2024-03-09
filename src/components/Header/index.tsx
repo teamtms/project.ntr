@@ -16,7 +16,7 @@ export const Header = async () => {
 					{data
 						? <ul className={styles.menu}>
 							<li>
-								<Link href="/" className={styles.logo}>
+								<Link href="/#" className={styles.logo}>
 									TMS
 								</Link>
 							</li>

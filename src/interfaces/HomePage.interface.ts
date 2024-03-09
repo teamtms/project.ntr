@@ -6,6 +6,6 @@ export interface IHomePage {
 		pluses: string
 		stats: string
 		moments: number[]
-		orgs: null
+		orgs: number[]
 	}
 }

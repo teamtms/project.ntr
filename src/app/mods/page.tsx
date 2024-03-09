@@ -2,7 +2,7 @@ import { Container } from '@/components/Container'
 import { github } from '@/services/github'
 import { Metadata } from 'next'
 import styles from './page.module.scss'
-import { Button, Card } from 'pixieui/components'
+import { Breadcrumbs, BreadcrumbsItem, Button, Card } from 'pixieui/components'
 import Link from 'next/link'
 
 const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
@@ -16,6 +16,12 @@ const Mods = async () => {
 
 	return (
 		<Container>
+			<div className="breadcrumbs">
+				<Breadcrumbs>
+					<BreadcrumbsItem><Link href="/">ТМС</Link></BreadcrumbsItem>
+					<BreadcrumbsItem>Сборка</BreadcrumbsItem>
+				</Breadcrumbs>
+			</div>
 			<Card appearance="solid">
 				<h1 className={styles.title}>{mods.name}</h1>
 				<ul className={styles.info}>

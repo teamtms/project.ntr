@@ -1,13 +1,14 @@
 import { Container } from '@/components/Container'
 import Eval from '@/components/Eval'
 import { wordpress } from '@/services/wordpress'
-import { Card } from 'pixieui/components'
+import { Breadcrumbs, BreadcrumbsItem, Card } from 'pixieui/components'
 
 import styles from './page.module.scss'
 import { WpUsername } from '@/components/Wp/WpUsername/WpUsername.component'
 import { WpCategory } from '@/components/Wp/WpCategory/WpCategory.component'
 import { WpImage } from '@/components/Wp/WpImage'
 import { Metadata } from 'next'
+import Link from 'next/link'
 
 const months = ['января', 'февраля', 'марта', 'апреля', 'мая', 'июня', 'июля', 'августа', 'сентября', 'октября', 'ноября', 'декабря']
 
@@ -28,6 +29,13 @@ const Article = async ({ params }: { params: { slug: string } }) => {
 
 	return (
 		<Container>
+			<div className="breadcrumbs">
+				<Breadcrumbs>
+					<BreadcrumbsItem><Link href="/">ТМС</Link></BreadcrumbsItem>
+					<BreadcrumbsItem><Link href="/articles">Статьи</Link></BreadcrumbsItem>
+					<BreadcrumbsItem><span dangerouslySetInnerHTML={{ __html: article.title.rendered }}></span></BreadcrumbsItem>
+				</Breadcrumbs>
+			</div>
 			<WpImage className={styles.image} imageId={article.featured_media}></WpImage>
 			<Card>
 				<h1 className={styles.title} dangerouslySetInnerHTML={{ __html: article.title.rendered }}></h1>

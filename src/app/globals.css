@@ -20,3 +20,12 @@ body>div {
 	font-size: inherit;
 	font-family: inherit;
 }
+
+.square {
+	aspect-ratio: 1/1;
+	object-fit: cover;
+}
+
+.breadcrumbs {
+	margin-block: 16px;
+}
