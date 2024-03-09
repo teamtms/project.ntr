@@ -1,0 +1,55 @@
+.card {
+	display: flex;
+	gap: 20px;
+	cursor: pointer;
+
+	&:hover {
+		background-color: var(--card-hover);
+	}
+}
+
+.imageBlock {
+	min-width: 200px;
+	max-width: 200px;
+	width: 200px;
+	// flex-shrink: 0;
+	// width: 100%;
+}
+
+.content {
+	flex-grow: 1;
+	flex-basis: 100%;
+	max-width: 100%;
+
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+
+	/* This is the dangerous one in WebKit, as it breaks things wherever */
+	word-break: break-all;
+	/* Instead use this non-standard one: */
+	word-break: break-word;
+}
+
+.title {
+	margin-bottom: 8px;
+
+	span {
+		font-size: 14px;
+		background-color: var(--background);
+		padding: 8px;
+		letter-spacing: -.1em;
+	}
+}
+
+.list {
+	display: flex;
+	gap: 8px;
+	margin-bottom: 16px;
+
+	li {
+		font-size: 14px;
+		background-color: var(--background);
+		padding: 4px 8px;
+		letter-spacing: -.1em;
+	}
+}
