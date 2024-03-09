@@ -10,6 +10,7 @@
 
 	@media (max-width: 560px) {
 		grid-template-columns: repeat(2, 1fr);
+		grid-column: 1/1;
 	}
 
 	@media (max-width: 425px) {
@@ -38,7 +39,7 @@
 
 .mainTitle {
 	margin-bottom: 16px;
-	font-size: 20px;
+	// font-size: 20px;
 }
 
 .description {
@@ -56,4 +57,16 @@
 		aspect-ratio: 1/1;
 		object-fit: cover;
 	}
+}
+
+.goodsTitle {
+	margin-block: 8px 32px;
+}
+
+.goodsHeader {
+	display: flex;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	margin-bottom: 24px;
+	gap: 8px 24px;
 }

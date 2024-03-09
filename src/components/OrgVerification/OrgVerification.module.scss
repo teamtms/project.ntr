@@ -1,5 +1,15 @@
 .card {
 	margin-block: 32px !important;
+	display: flex;
+	gap: 32px;
+
+	@media (max-width:768px) {
+		flex-direction: column;
+	}
+}
+
+.text {
+	flex-basis: 60%;
 }
 
 .wrapper {
@@ -9,4 +19,41 @@
 .title {
 	font-size: 24px;
 	margin-bottom: 16px;
+	hyphens: auto;
+}
+
+.imageBlock {
+	flex-basis: 300px;
+	max-width: 300px;
+	min-width: 200px;
+	margin: 16px;
+
+	@media (max-width: 768px) {
+		flex-basis: auto;
+	}
+
+	@media (max-width: 560px) {
+		max-width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+
+}
+
+.image {
+	flex-basis: 100px;
+	flex-grow: 0;
+	height: auto;
+	max-width: 300px;
+
+	@media (max-width: 560px) {
+		display: inline-block;
+		margin: 0 auto;
+	}
+}
+
+.body {
+	letter-spacing: -.03em;
+	hyphens: auto;
 }
