@@ -6,6 +6,11 @@
 	width: 100%;
 }
 
+div:has(.popup) {
+	//TODO: remove after fix this popup in UI
+	z-index: 999;
+}
+
 .goodTitle {
 	display: block;
 	// font-size: 10px;

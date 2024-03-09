@@ -13,7 +13,7 @@ export const generateMetadata = async ({ params }: { params: { slug: string } })
 	const [shop] = await wordpress.getShopBySlug(params.slug)
 
 	return {
-		title: `Магазин ${shop.title.rendered} на ТМС`,
+		title: `${shop.title.rendered} на ТМС`,
 		description: shop.excerpt.rendered,
 		openGraph: {
 			url: `https://thetms.ru/shops/${params.slug}`
@@ -29,7 +29,7 @@ const Shop = async ({ params }: { params: { slug: string } }) => {
 			<div className="breadcrumbs">
 				<Breadcrumbs>
 					<BreadcrumbsItem><Link href="/">ТМС</Link></BreadcrumbsItem>
-					<BreadcrumbsItem><Link href={`/shops/${params.slug}`}>Microsoft Store</Link></BreadcrumbsItem>
+					<BreadcrumbsItem><Link href={`/shops/${params.slug}`} dangerouslySetInnerHTML={{ __html: shop.title.rendered }}></Link></BreadcrumbsItem>
 					<BreadcrumbsItem>Все товары</BreadcrumbsItem>
 				</Breadcrumbs>
 			</div>

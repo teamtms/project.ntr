@@ -38,7 +38,7 @@ export const Good = ({ good }: GoodProps) => {
 					<h3 className={styles.goodTitle}>{good.name}</h3>
 					<span className={styles.price}>{good.price.toLocaleString('ru-RU')} р—т</span>
 
-					<Popup title={good.name} openButton={<Button>Подробнее</Button>}>
+					<Popup className={styles.popup} title={good.name} openButton={<Button>Подробнее</Button>}>
 						<div className={styles.popupgood}>
 							<Image alt={exists(image?.alt_text)} src={image?.guid?.rendered ? image?.guid?.rendered : ''} width={200} height={200} className={styles.image} />
 							<div className={styles.info}>

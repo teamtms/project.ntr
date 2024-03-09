@@ -28,7 +28,7 @@ const Shop = async ({ params }: { params: { slug: string } }) => {
 			<div className="breadcrumbs">
 				<Breadcrumbs>
 					<BreadcrumbsItem><Link href="/">ТМС</Link></BreadcrumbsItem>
-					<BreadcrumbsItem>Microsoft Store</BreadcrumbsItem>
+					<BreadcrumbsItem dangerouslySetInnerHTML={{ __html: shop.title.rendered }}></BreadcrumbsItem>
 				</Breadcrumbs>
 			</div>
 
