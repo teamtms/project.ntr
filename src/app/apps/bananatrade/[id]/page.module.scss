@@ -1,0 +1,46 @@
+.column {
+	width: 20px;
+	background-color: #fff;
+	background-color: #0f0;
+
+	&[data-title] {
+		position: relative;
+
+		&::before {
+			content: attr(data-title);
+			position: absolute;
+			background-color: #000;
+			padding: 4px;
+			border: #fff 1px solid;
+			display: none;
+			top: 100%;
+			white-space: nowrap;
+		}
+
+		&:hover::before {
+			display: block;
+		}
+	}
+}
+
+.container {
+	display: flex;
+	align-items: flex-end;
+	gap: 8px;
+}
+
+.red {
+	background-color: #f00;
+}
+
+.sign {
+	height: 50px;
+	display: flex;
+	justify-content: flex-end;
+	margin-right: 8px;
+}
+
+.title {
+	font-size: 16px;
+	margin-bottom: 16px;
+}
