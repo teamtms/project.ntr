@@ -19,6 +19,10 @@ const BananaTrade = async ({ params }: { params: { id: number } }) => {
 		}
 	} = await response.json()
 
+	if (!response.ok) return <>
+		{JSON.stringify(json)}
+	</>
+
 	const prices = json.acf.rate.map(price => price.price)
 
 	const maxSign = getMaxOfArray(prices) + 50
