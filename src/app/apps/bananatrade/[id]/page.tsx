@@ -7,7 +7,7 @@ function getMaxOfArray(numArray: number[]) {
 }
 
 const BananaTrade = async ({ params }: { params: { id: number } }) => {
-	const response = await fetch(`https://www.fb24m.ru/tms/wp-json/wp/v2/currencies/${params.id}`)
+	const response = await fetch(`https://www.fb24m.ru/tms/wp-json/wp/v2/currencies/${params.id}`, { cache: 'no-cache' })
 	const json: {
 		title: {
 			rendered: string
