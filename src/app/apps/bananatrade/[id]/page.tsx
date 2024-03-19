@@ -39,7 +39,7 @@ const BananaTrade = async ({ params }: { params: { id: number } }) => {
 			</h2>
 			<div className={styles.container}>
 				<div className={styles.prices}>
-					{signs.toReversed().map((price) => <div className={styles.sign} key={price}>{price}</div>)}
+					{signs.reverse().map((price) => <div className={styles.sign} key={price}>{price}</div>)}
 				</div>
 				{prices.map((price, index) =>
 					<div data-title={`${price} р—т (${price - prices[index - 1]})`}
