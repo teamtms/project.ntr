@@ -1,11 +1,37 @@
+.menuLi {
+	transition: background-color .5s, height .5s ease;
+
+	height: 34px;
+
+	width: 100%;
+	overflow: hidden;
+
+	@media (max-width: 1140px) {
+		height: 4px;
+		background-color: #1e2434;
+	}
+}
+
 .menu {
 	display: flex;
 	align-items: center;
-	flex-wrap: wrap;
+	flex-direction: column;
+	width: 150px;
+	gap: 4px;
+	position: fixed;
+	top: 12px;
+	right: 12px;
+
+	&:hover .menuLi {
+		height: 34px;
+		display: block;
+	}
 }
 
 .menuItem {
 	font-size: 12px;
+
+	display: block;
 }
 
 .logo {

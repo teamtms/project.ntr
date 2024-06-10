@@ -18,7 +18,11 @@ import { IShop } from '@/interfaces/Shop'
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 
 export const request = async<T>(url: URL | string, init?: RequestInit | undefined): Promise<T> => {
-	const response = await fetch(url, { cache: 'no-cache' })
+	const response = await fetch(url, {
+		cache: 'no-cache', headers: {
+			'Authorization': 'Basic RmFrZW0xbmVyOjlNZlRTcW15cjQqQU1aeHR5Ug=='
+		}
+	})
 	const json: T = await response.json()
 
 	return json
@@ -68,4 +72,5 @@ export const wordpress = {
 	getPageBySlug: async (slug: string) => request<IHomePage[]>(`${API}/pages?slug=${slug}`),
 
 	getGoLinkBySlug: async (slug: string) => request<{ slug: string, acf: { url: string } }[]>(`${API}/go?slug=${slug}`),
+	getMe: async (slug: string) => request<any>(`${API}/users/me`),
 }
