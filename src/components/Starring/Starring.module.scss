@@ -1,0 +1,190 @@
+.label span {
+	display: inline-block;
+
+	animation-name: orderLetters;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+}
+
+@keyframes orderLetters {
+	0% {
+		letter-spacing: 200%;
+	}
+
+	100% {
+		transform: translateX(0);
+		letter-spacing: 120%;
+	}
+}
+
+@keyframes moveLabel {
+	0% {
+		transform: translateX(0);
+	}
+
+	100% {
+		transform: translateX(50px);
+	}
+}
+
+.space {
+	display: inline-block;
+	width: 16px;
+}
+
+.label {
+	animation-name: firstDisappear;
+	animation-duration: .5s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+	opacity: 1;
+}
+
+.label.first {
+	animation-delay: 2.5s;
+}
+
+.label.second {
+	animation-delay: 3s;
+}
+
+.label.third {
+	animation-delay: 3.5s;
+}
+
+@keyframes firstDisappear {
+	0% {
+		opacity: 1;
+	}
+
+	100% {
+		opacity: 0;
+	}
+}
+
+.video {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+
+	animation-name: video;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+}
+
+@keyframes video {
+	0% {
+		filter: blur(50px);
+		opacity: 0;
+	}
+
+	100% {
+		filter: blur(0);
+		opacity: 1;
+	}
+}
+
+.label.first {
+	position: fixed;
+	top: 50%;
+	right: 200px;
+
+	translate: 0 -50%;
+}
+
+.label.second {
+	position: fixed;
+	top: 150px;
+	left: 50%;
+
+	translate: -50% 0;
+}
+
+.label.third {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+
+	translate: -50% -50%;
+}
+
+.lastText.lastText.lastText {
+	animation-name: video;
+	animation-duration: 1s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+	font-size: 48px;
+	white-space: nowrap;
+	margin-top: 20px;
+}
+
+.label {
+	text-align: center;
+}
+
+.logoPlanet {
+	position: fixed;
+	// z-index: 999;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	animation-name: logoPlanet;
+	animation-duration: 2s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+
+	opacity: 0;
+}
+
+@keyframes logoPlanet {
+	0% {
+		opacity: 0;
+	}
+
+	50% {
+		opacity: 1;
+		filter: blur(0);
+	}
+
+	100% {
+		filter: blur(50px);
+		opacity: 0;
+	}
+}
+
+.logo {
+	position: fixed;
+	// z-index: 999;
+	width: 600px;
+
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+
+	animation-name: logo;
+	animation-duration: 1s;
+	animation-delay: 1s;
+	animation-fill-mode: forwards;
+	animation-iteration-count: 1;
+
+	opacity: 0;
+}
+
+@keyframes logo {
+	0% {
+		filter: blur(50px);
+		opacity: 0;
+	}
+
+	100% {
+		filter: blur(0);
+		opacity: 1;
+	}
+}

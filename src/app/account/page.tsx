@@ -1,5 +1,4 @@
 import { Container } from '@/components/Container'
-import { wordpress } from '@/services/wordpress'
 import { Button, Card, Input, Title3 } from 'pixieui/components'
 
 const handleLogin = async () => {
@@ -9,9 +8,6 @@ const handleLogin = async () => {
 }
 
 const LoginPage = async () => {
-	const me = await wordpress.getMe()
-
-	console.log(me)
 
 	return (
 		<Container className="flex items-center justify-center h-[80vh]">
