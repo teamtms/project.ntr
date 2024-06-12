@@ -13,6 +13,7 @@ export interface IUser {
 		owner_of: number[]
 		additions: string
 		fines: number[]
+		relationship: any[]
 	}
 }
 

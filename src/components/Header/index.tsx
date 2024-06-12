@@ -30,7 +30,7 @@ export const Header = async () => {
 								</li>)}
 							<li className={styles.menuLi}>
 								<Button appearance="primary" className={styles.menuItem}>
-									<Link href="/login">
+									<Link href="/account/login">
 										Войти
 									</Link>
 								</Button>

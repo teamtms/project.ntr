@@ -14,14 +14,17 @@ import { IMenu } from '@/interfaces/Menu.interface'
 import { IHomePage } from '@/interfaces/HomePage.interface'
 import { IComment } from '@/interfaces/Comment.interface'
 import { IShop } from '@/interfaces/Shop'
+import { cookies } from 'next/headers'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 
-export const request = async<T>(url: URL | string, init?: RequestInit | undefined): Promise<T> => {
+export const request = async<T>(url: URL | string, init?: RequestInit | undefined, token: string = cookies().get('saved-session-token')?.value!): Promise<T> => {
 	const response = await fetch(url, {
-		cache: 'no-cache', headers: {
-			'Authorization': 'Basic RmFrZW0xbmVyOjlNZlRTcW15cjQqQU1aeHR5Ug=='
-		}
+		cache: 'no-cache',
+		headers: {
+			'Authorization': `Basic ${token}`
+		},
+		...init
 	})
 	const json: T = await response.json()
 
@@ -72,5 +75,6 @@ export const wordpress = {
 	getPageBySlug: async (slug: string) => request<IHomePage[]>(`${API}/pages?slug=${slug}`),
 
 	getGoLinkBySlug: async (slug: string) => request<{ slug: string, acf: { url: string } }[]>(`${API}/go?slug=${slug}`),
-	getMe: async (slug: string) => request<any>(`${API}/users/me`),
+	getMe: async (token?: string) => request<any>(`${API}/users/me`, {}, token && token),
+	getMessage: async (slug: string) => request<any>(`${API}/messages?slug=${slug}`),
 }
