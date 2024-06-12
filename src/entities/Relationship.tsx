@@ -50,8 +50,6 @@ export const Relationship = (props: { relationship: any[] }) => {
 	const [selectedUser, setSelectedUser] = useState(0)
 	console.log(getBarColor(props.relationship[selectedUser].confidence))
 
-	//373737 fff
-
 	return (
 		<div className="w-full">
 			<div className="flex">

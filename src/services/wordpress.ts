@@ -18,7 +18,7 @@ import { cookies } from 'next/headers'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 
-export const request = async<T>(url: URL | string, init?: RequestInit | undefined, token: string = cookies().get('saved-session-token')?.value!): Promise<T> => {
+export const request = async<T>(url: URL | string, init?: RequestInit | undefined, token?: string): Promise<T> => {
 	const response = await fetch(url, {
 		cache: 'no-cache',
 		headers: {
@@ -75,6 +75,6 @@ export const wordpress = {
 	getPageBySlug: async (slug: string) => request<IHomePage[]>(`${API}/pages?slug=${slug}`),
 
 	getGoLinkBySlug: async (slug: string) => request<{ slug: string, acf: { url: string } }[]>(`${API}/go?slug=${slug}`),
-	getMe: async (token?: string) => request<any>(`${API}/users/me`, {}, token && token),
+	getMe: async (token: string) => request<any>(`${API}/users/me`, {}, token),
 	getMessage: async (slug: string) => request<any>(`${API}/messages?slug=${slug}`),
 }

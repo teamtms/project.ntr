@@ -2,6 +2,7 @@ import { Container } from '@/components/Container'
 import { Relationship } from '@/entities/Relationship'
 import { wordpress } from '@/services/wordpress'
 import { Card } from '@/shared/ui/Card'
+import { cookies } from 'next/headers'
 
 const handleLogin = async () => {
 	'use server'
@@ -10,7 +11,7 @@ const handleLogin = async () => {
 }
 
 const AccountPage = async () => {
-	const me = await wordpress.getMe()
+	const me = await wordpress.getMe(cookies().get('saved-session-token')?.value ? cookies().get('saved-session-token')?.value! : '')
 	const [passport] = await wordpress.getUserByName(me.name)
 
 	// console.log(passport.acf)
