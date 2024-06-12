@@ -73,7 +73,7 @@ export const Relationship = (props: { relationship: any[] }) => {
 				{props.relationship[selectedUser].name} - {props.relationship[selectedUser].confidence}% ({getRelationshipStatus(props.relationship[selectedUser].confidence)})
 			</div>
 			<div className="h-12 w-full bg-[#8b8b8b] border-[#373737] border-2 border-r-white border-b-white"></div>
-			<div className={`h-10 ${getBarColor(props.relationship[selectedUser].confidence)} -mt-11 ml-1`} style={{ width: `${props.relationship[selectedUser].confidence}%` }}></div>
+			<div className={`h-10 ${getBarColor(props.relationship[selectedUser].confidence)} transition-all duration-500 -mt-11 ml-1`} style={{ width: `${props.relationship[selectedUser].confidence}%` }}></div>
 			<div className="flex justify-between -mt-11">
 				<div className="h-12 w-1"></div>
 				<div className="h-11 w-1 bg-[#373737]"></div>
