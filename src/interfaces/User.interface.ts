@@ -14,6 +14,12 @@ export interface IUser {
 		additions: string
 		fines: number[]
 		relationship: any[]
+		messages: {
+			ID: number
+			post_title: string
+			post_author: number
+			post_name: string
+		}[]
 	}
 }
 

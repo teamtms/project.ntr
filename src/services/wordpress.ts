@@ -53,7 +53,7 @@ export const wordpress = {
 	getWpUserById: async (id: number) => request<IWpUser>(`${API}/users/${id}`),
 
 	getUserById: async (id: number) => request<IUser>(`${API}/profile/${id}`),
-	getUserByName: async (username: string) => request<IUser[]>(`${API}/profile?slug=${username}`),
+	getUserByName: async (username: string) => request<IUser[]>(`${API}/profile?slug=${username}&acf_format=standard`),
 	searchUsers: async (query: string) => request<IUser[]>(`${API}/profile?search=${query}`),
 
 	getOrgById: async (id: number) => request<IOrg>(`${API}/organization/${id}`),
@@ -77,4 +77,6 @@ export const wordpress = {
 	getGoLinkBySlug: async (slug: string) => request<{ slug: string, acf: { url: string } }[]>(`${API}/go?slug=${slug}`),
 	getMe: async (token: string) => request<any>(`${API}/users/me`, {}, token),
 	getMessage: async (slug: string) => request<any>(`${API}/messages?slug=${slug}`),
+
+	getMessagesByUserId: async (userId: number) => request<any>(`${API}/messages?menu_order=${userId}&orderby=author`),
 }

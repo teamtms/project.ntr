@@ -76,10 +76,10 @@ export const Relationship = (props: { relationship: any[] }) => {
 			<div className={`h-10 ${getBarColor(props.relationship[selectedUser].confidence)} transition-all duration-500 -mt-11 ml-1`} style={{ width: `${props.relationship[selectedUser].confidence}%` }}></div>
 			<div className="flex justify-between -mt-11">
 				<div className="h-12 w-1"></div>
-				<div className="h-11 w-1 bg-[#373737]"></div>
-				<div className="h-11 w-1 bg-[#373737]"></div>
-				<div className="h-11 w-1 bg-[#373737]"></div>
-				<div className="h-11 w-1 bg-[#373737]"></div>
+				<div className="h-11 w-1 bg-[#373737] border-x-2 border-l-white border-r-[#373737]"></div>
+				<div className="h-11 w-1 bg-[#373737] border-x-2 border-l-white border-r-[#373737]"></div>
+				<div className="h-11 w-1 bg-[#373737] border-x-2 border-l-white border-r-[#373737]"></div>
+				<div className="h-11 w-1 bg-[#373737] border-x-2 border-l-white border-r-[#373737]"></div>
 				<div className="h-12 w-1"></div>
 			</div>
 			<div className="flex justify-between mt-2">
