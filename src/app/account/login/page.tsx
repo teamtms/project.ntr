@@ -27,7 +27,7 @@ const handleLogin = async (formData: FormData) => {
 
 const LoginPage = async () => {
 	if (cookies().has('saved-session-token')) {
-		redirect('/account')
+		redirect('/apps')
 	}
 
 	return (
