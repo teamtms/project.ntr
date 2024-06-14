@@ -33,3 +33,7 @@ body > div {
 input[type="password"] {
   -webkit-text-security: none;
 }
+
+summary::marker {
+  content: "";
+}
