@@ -79,4 +79,7 @@ export const wordpress = {
 	getMessage: async (slug: string) => request<any>(`${API}/messages?slug=${slug}`),
 
 	getMessagesByUserId: async (userId: number) => request<any>(`${API}/messages?menu_order=${userId}&orderby=author`),
+
+	getVideoBySlug: async (slug: string) => request<any>(`${API}/videos?slug=${slug}&acf_format=standard`),
+	getVideos: async () => request<any>(`${API}/videos?acf_format=standard`),
 }
