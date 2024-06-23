@@ -1,3 +1,7 @@
 export const formatDate = (date: string): string => {
-	return `${date[6]}${date[7]}.${date[4]}${date[5]}.${date[0]}${date[1]}${date[2]}${date[3]}`
+	const dateObj = new Date(date)
+
+	const month = dateObj.getMonth() + 1 <= 9 ? `0${dateObj.getMonth() + 1}` : dateObj.getMonth() + 1
+
+	return `${dateObj.getDay() <= 9 ? '0' + dateObj.getDay() : dateObj.getDay()}.${month}.${dateObj.getFullYear()}`
 }

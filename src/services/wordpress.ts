@@ -14,7 +14,6 @@ import { IMenu } from '@/interfaces/Menu.interface'
 import { IHomePage } from '@/interfaces/HomePage.interface'
 import { IComment } from '@/interfaces/Comment.interface'
 import { IShop } from '@/interfaces/Shop'
-import { cookies } from 'next/headers'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 

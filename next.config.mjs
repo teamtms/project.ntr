@@ -8,6 +8,12 @@ const nextConfig = {
 				hostname: 'www.fb24m.ru',
 				port: '',
 				pathname: '/tms/**'
+			},
+			{
+				protocol: 'https',
+				hostname: 'secure.gravatar.com',
+				port: '',
+				pathname: '/avatar/**'
 			}
 		]
 	}
