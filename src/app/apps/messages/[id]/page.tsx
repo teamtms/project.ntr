@@ -38,9 +38,10 @@ const ChatPage = async ({ params }: { params: { id: number } }) => {
 
 	return (
 		<>
-			{messages.map((message) => <div key={message.id}>
-				{message.authorName}: {message.text}
-			</div>)}
+			{// @ts-except-error
+				messages.map((message) => <div key={message.id}>
+					{message.authorName}: {message.text}
+				</div>)}
 			<form className="flex" action={createMessage}>
 				<input className="hidden" name="chat-id" readOnly value={chat?.id} required />
 				<Input required className="flex-grow" name="message" placeholder="Сообщение" />

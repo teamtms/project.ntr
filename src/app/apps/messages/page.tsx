@@ -14,36 +14,43 @@ const createChat = async (formData: FormData) => {
 
 	const me = await wordpress.getMe(cookies().get('saved-session-token')?.value ? cookies().get('saved-session-token')?.value! : '')
 
-	if (me.name !== username && !prisma.chat.findMany({
+	const sameChats = await prisma.chat.findMany({
 		where: {
 			OR: [
 				{ user1: username, user2: me.name },
 				{ user1: me.name, user2: username }
 			]
 		}
-	})) {
+	})
+
+	if (me.name !== username && sameChats.length < 1) {
 		await prisma.chat.create({ data: { user1: me.name, user2: username } })
 
 		revalidatePath('./')
 	}
 
-	else {
-		console.log('you\'re stupid.')
+	else if (me.name === username) {
+		console.log('me.name === username')
+	}
+
+	else if (sameChats.length > 1) {
+		console.log(sameChats)
 	}
 }
 
 const RelationshipApp = async () => {
 	const me = await wordpress.getMe(cookies().get('saved-session-token')?.value ? cookies().get('saved-session-token')?.value! : '')
-	const [passport] = await wordpress.getUserByName(me.name)
 
 	const chatList = await prisma.chat.findMany({
 		where: {
 			OR: [
-				{ user1: passport.title.rendered },
-				{ user2: passport.title.rendered }
+				{ user1: me.name },
+				{ user2: me.name }
 			]
 		}
 	})
+
+	console.log(await prisma.chat.findMany())
 
 	return (
 		<>
