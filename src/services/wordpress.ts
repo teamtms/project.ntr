@@ -14,10 +14,11 @@ import { IMenu } from '@/interfaces/Menu.interface'
 import { IHomePage } from '@/interfaces/HomePage.interface'
 import { IComment } from '@/interfaces/Comment.interface'
 import { IShop } from '@/interfaces/Shop'
+import { notFound } from 'next/navigation'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 
-export const request = async<T>(url: URL | string, init?: RequestInit | undefined, token?: string): Promise<T> => {
+export const request = async<T>(url: URL | string, init?: RequestInit | undefined, token?: string): Promise<T | null> => {
 	const response = await fetch(url, {
 		cache: 'no-cache',
 		headers: {
@@ -26,6 +27,10 @@ export const request = async<T>(url: URL | string, init?: RequestInit | undefine
 		...init
 	})
 	const json: T = await response.json()
+
+	if (!json) {
+		notFound()
+	}
 
 	return json
 }

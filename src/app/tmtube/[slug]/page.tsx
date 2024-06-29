@@ -59,7 +59,7 @@ const VideoPage = async ({ params }: { params: { slug: string } }) => {
 						<video className="w-full rounded-xl" controls src={video.acf.video}></video>
 						<span className="text-2xl mt-4 block">{video.title.rendered}</span>
 						<div className="mt-4 bg-[#272e43] p-3 px-4">
-							<span>{author.name}</span> <span>{formatDate(video.date)}</span>
+							<span>{author?.name}</span> <span>{formatDate(video.date)}</span>
 							<details className="group">
 								<summary className="cursor-pointer">
 									<div className="group-open:hidden">
@@ -92,7 +92,7 @@ const VideoPage = async ({ params }: { params: { slug: string } }) => {
 						</form>
 						<p className="mt-2 opacity-50">Если ваш комментарий не появился, он будет добавлен после модерации</p>
 						<div className="flex flex-col gap-4 mt-8">
-							{comments.map((comment) => <div className="flex gap-4" key={comment.id}>
+							{comments?.map((comment) => <div className="flex gap-4" key={comment.id}>
 								<div className="">
 									<Image width={60} height={60} className="w-12 h-12 rounded-full" src={comment.author_avatar_urls[96]} alt=""></Image>
 								</div>
@@ -112,12 +112,12 @@ const VideoPage = async ({ params }: { params: { slug: string } }) => {
 								<div className="flex" key={video.id}>
 									<Link href={`/tmtube/${video.slug}`} className="flex gap-4">
 										<div className="basis-[140px] shrink-0">
-											<Image className=" aspect-video" src={image?.guid?.rendered} alt="" width={150} height={150} />
+											<Image className=" aspect-video" src={image?.guid?.rendered ? image?.guid?.rendered : ''} alt="" width={150} height={150} />
 										</div>
 										<div className="">
 											<span className="text-base [word-spacing:-4px] tracking-tight [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] [text-overflow-ellipsis] overflow-hidden">{video.title.rendered}</span>
 											<div className="mt-2 flex items-center text-sm opacity-60 gap-2">
-												<span>{author.name}</span>
+												<span>{author?.name}</span>
 												<span>•</span>
 												<span>{formatDate(video.date)}</span>
 											</div>
