@@ -18,7 +18,7 @@ import { notFound } from 'next/navigation'
 
 const API = `https://www.fb24m.ru/tms/wp-json/wp/v2`
 
-export const request = async<T>(url: URL | string, init?: RequestInit | undefined, token?: string): Promise<T | null> => {
+export const request = async<T>(url: URL | string, init?: RequestInit | undefined, token?: string): Promise<T> => {
 	const response = await fetch(url, {
 		cache: 'no-cache',
 		headers: {
