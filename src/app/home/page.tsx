@@ -30,12 +30,12 @@ export default async function Home() {
 
         <Title2 className={styles.title2}>Плюсы <del>их тут нет</del></Title2>
         <ul>
-          {pluses.split('\n').map((item) => <li key={item}>{item}</li>)}
+          {pluses && pluses.split('\n').map((item) => <li key={item}>{item}</li>)}
         </ul>
 
         <Title2 className={styles.title2}>Статистика</Title2>
         <div className={styles.stats}>
-          {stats.split('\n').map((item) =>
+          {stats && stats.split('\n').map((item) =>
             <div key={item} className={styles.statsItem}>
               <Title4>{item.split(':')[0]}</Title4>
               <Body1>{item.split(':')[1]}</Body1>
@@ -45,17 +45,17 @@ export default async function Home() {
 
         <Title2 className={styles.title2}>Последние новости</Title2>
         <div className={styles.latestNews}>
-          {posts.map((item) => <Post {...item} key={item.id} />)}
+          {posts && posts.map((item) => <Post {...item} key={item.id} />)}
         </div>
 
         <Title2 className={styles.title2}>Моменты</Title2>
         <div className="grid gap-8 grid-cols-1 md:grid-cols-3 sm:grid-cols-2 mt-4">
-          {moments.length && moments.map((item) => <WpImage className="square" key={item} imageId={item} />)}
+          {moments && moments.length && moments.map((item) => <WpImage className="square" key={item} imageId={item} />)}
         </div>
 
         <Title2 className={styles.title2}>Лучшие постройки</Title2>
         <div className={styles.buildings}>
-          {orgs.map((org) => <Building key={org} orgId={org} />)}
+          {orgs && orgs.map((org) => <Building key={org} orgId={org} />)}
         </div>
       </>}
     </Container>
