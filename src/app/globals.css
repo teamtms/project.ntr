@@ -8,6 +8,11 @@
   --card-hover: #0a224f;
 }
 
+input {
+  outline: 0;
+  border: 0;
+}
+
 body {
   font-size: 14px;
 }
@@ -19,6 +24,7 @@ body > div {
 * {
   font-size: inherit;
   font-family: inherit;
+  scroll-behavior: smooth;
 }
 
 .square {

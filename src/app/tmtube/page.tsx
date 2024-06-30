@@ -15,8 +15,6 @@ const TmtubePage = async () => {
 					const image = await wordpress.getMediaById(video.featured_media)
 					const author = await wordpress.getWpUserById(video.author)
 
-					console.log(video)
-
 					return (
 						<div className={pixelCode.className} key={video.id}>
 							<Link href={`/tmtube/${video.slug}`} className="flex flex-col gap-4">

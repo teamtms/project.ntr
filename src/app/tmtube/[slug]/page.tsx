@@ -1,4 +1,5 @@
 import Eval from '@/components/Eval'
+import { VideoCard } from '@/entities/VideoCard'
 import { formatDate } from '@/functions/formatDate'
 import { wordpress } from '@/services/wordpress'
 import { pixelCode } from '@/shared/fonts'
@@ -45,8 +46,6 @@ const VideoPage = async ({ params }: { params: { slug: string } }) => {
 	const videos = await wordpress.getVideos()
 	const author = await wordpress.getWpUserById(video.author)
 	const comments = await wordpress.getCommentsByPostId(video.id)
-
-	console.log(video)
 
 	return (
 		<div className="fixed overflow-auto top-0 left-0 w-full h-full z-[999] bg-[#11141d]">
@@ -104,29 +103,7 @@ const VideoPage = async ({ params }: { params: { slug: string } }) => {
 						</div>
 					</div>
 					<div className="lg:w-[400px] lg:shrink-0 flex flex-col gap-4">
-						{await Promise.all(videos.map(async (video: any) => {
-							const image = await wordpress.getMediaById(video.featured_media)
-							const author = await wordpress.getWpUserById(video.author)
-
-							return (
-								<div className="flex" key={video.id}>
-									<Link href={`/tmtube/${video.slug}`} className="flex gap-4">
-										<div className="basis-[140px] shrink-0">
-											<Image className=" aspect-video" src={image?.guid?.rendered ? image?.guid?.rendered : ''} alt="" width={150} height={150} />
-										</div>
-										<div className="">
-											<span className="text-base [word-spacing:-4px] tracking-tight [display:-webkit-box] [-webkit-box-orient:vertical] [-webkit-line-clamp:2] [text-overflow-ellipsis] overflow-hidden">{video.title.rendered}</span>
-											<div className="mt-2 flex items-center text-sm opacity-60 gap-2">
-												<span>{author?.name}</span>
-												<span>•</span>
-												<span>{formatDate(video.date)}</span>
-											</div>
-										</div>
-									</Link>
-								</div>
-							)
-						}
-						))}
+						{videos.map((video: any) => <VideoCard {...video} key={video.id} />)}
 					</div>
 				</div>
 

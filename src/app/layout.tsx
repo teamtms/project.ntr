@@ -23,7 +23,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <PixieProvider>
           <Header />
           <Suspense fallback={<CubeLoader variation="jumping" />}>
-            <main>
+            <main className="py-2">
               {children}
             </main>
           </Suspense>

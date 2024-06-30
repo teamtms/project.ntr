@@ -1,30 +1,44 @@
 .menuLi {
-	transition: background-color .5s, height .5s ease;
-
-	height: 34px;
 
 	width: 100%;
-	overflow: hidden;
+	// overflow: hidden;
+
+	flex-basis: auto;
+
+	margin-bottom: 4px;
 
 	@media (max-width: 1140px) {
-		height: 4px;
 		background-color: #1e2434;
 	}
 }
 
 .menu {
-	display: flex;
-	align-items: center;
-	flex-direction: column;
 	width: 150px;
 	gap: 4px;
 	position: fixed;
 	top: 12px;
 	right: 12px;
 
+	@media (max-width: 1140px) {
+		transition: transform .3s;
+		margin-top: 40px;
+		transform: translateX(100%);
+		height: calc(100vh - 64px);
+		overflow-y: scroll;
+	}
+
 	&:hover .menuLi {
-		height: 34px;
 		display: block;
+	}
+}
+
+.menuWrapper {
+
+	&:has(.openbutton:hover),
+	.menu:hover {
+		.menu {
+			transform: translateX(0);
+		}
 	}
 }
 

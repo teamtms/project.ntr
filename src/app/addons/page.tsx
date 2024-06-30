@@ -17,7 +17,7 @@ const Addons = async () => {
 				</Breadcrumbs>
 			</div>
 			<div className={styles.addons}>
-				{addons && addons.map((addon) => <Addon key={addon.id} addon={addon} />)}
+				{addons.length > 0 && addons.map((addon) => <Addon key={addon.id} addon={addon} />)}
 			</div>
 		</Container>
 	)

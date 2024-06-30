@@ -20,7 +20,7 @@ const Page = async ({ params }: { params: { page: number } }) => {
 		<div className="breadcrumbs">
 			<Breadcrumbs>
 				<BreadcrumbsItem><Link href="/">ТМС</Link></BreadcrumbsItem>
-				<BreadcrumbsItem>Статьи</BreadcrumbsItem>
+				<BreadcrumbsItem>Новости</BreadcrumbsItem>
 			</Breadcrumbs>
 		</div>
 		<div className="grid grid-cols-3 gap-8">

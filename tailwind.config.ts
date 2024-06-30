@@ -13,6 +13,11 @@ const config: Config = {
       },
       maxWidth: {
         'ctn': '900px'
+      },
+      colors: {
+        'background': '#11141d',
+        'interactive': '#1e2434',
+        'accent': '#0a224f'
       }
     },
   },

@@ -28,9 +28,7 @@ export const request = async<T>(url: URL | string, init?: RequestInit | undefine
 	})
 	const json: T = await response.json()
 
-	if (!json) {
-		notFound()
-	}
+	if (!json) notFound()
 
 	return json
 }
@@ -61,6 +59,7 @@ export const wordpress = {
 	searchUsers: async (query: string) => request<IUser[]>(`${API}/profile?search=${query}`),
 
 	getOrgById: async (id: number) => request<IOrg>(`${API}/organization/${id}`),
+	getOrgBySlug: async (slug: string) => request<IOrg[]>(`${API}/organization?slug=${slug}&acf_format=standard`),
 	searchOrgs: async (query: string) => request<IOrg[]>(`${API}/organization?search=${query}`),
 
 	getAddons: async () => request<IAddon[]>(`${API}/addons`),
@@ -75,8 +74,9 @@ export const wordpress = {
 	getPosters: async () => request<IPoster[]>(`${API}/poster`),
 	getPosterById: async (id: number) => request<IPoster>(`${API}/poster/${id}`),
 	getCityBySlug: async (slug: string) => request<ICity[]>(`${API}/city?slug=${slug}`),
-	getMenuBySlug: async (slug: string) => request<IMenu>(`https://www.fb24m.ru/tms/wp-json/menus/v1/menus/${slug}`),
 	getPageBySlug: async (slug: string) => request<IHomePage[]>(`${API}/pages?slug=${slug}`),
+
+	getMenuBySlug: async (slug: string) => request<IMenu>(`https://www.fb24m.ru/tms/wp-json/menus/v1/menus/${slug}`),
 
 	getGoLinkBySlug: async (slug: string) => request<{ slug: string, acf: { url: string } }[]>(`${API}/go?slug=${slug}`),
 	getMe: async (token: string) => request<any>(`${API}/users/me`, {}, token),
@@ -84,6 +84,9 @@ export const wordpress = {
 
 	getMessagesByUserId: async (userId: number) => request<any>(`${API}/messages?menu_order=${userId}&orderby=author`),
 
-	getVideoBySlug: async (slug: string) => request<any>(`${API}/videos?slug=${slug}&acf_format=standard`),
+	getVideoBySlug: async (slug: string, limit: number = 10) => request<any>(`${API}/videos?slug=${slug}&acf_format=standard&per_page=${limit}`),
+	searchVideos: async (query: string) => request<any>(`${API}/videos?search=${query}&acf_format=standard`),
 	getVideos: async () => request<any>(`${API}/videos?acf_format=standard`),
+
+	getSquare: async (page: number) => request<any>(`${API}/squares?acf_format=standard&per_page=1&page=${page}`),
 }

@@ -41,8 +41,8 @@ const Article = async ({ params }: { params: { slug: string } }) => {
 			<div className="breadcrumbs">
 				<Breadcrumbs>
 					<BreadcrumbsItem><Link href="/">ТМС</Link></BreadcrumbsItem>
-					<BreadcrumbsItem><Link href="/articles">Статьи</Link></BreadcrumbsItem>
-					<BreadcrumbsItem><span dangerouslySetInnerHTML={{ __html: article.title.rendered }}></span></BreadcrumbsItem>
+					<BreadcrumbsItem><Link href="/news">Новости</Link></BreadcrumbsItem>
+					<BreadcrumbsItem><span className="block max-w-72 overflow-hidden whitespace-nowrap text-ellipsis" dangerouslySetInnerHTML={{ __html: article.title.rendered }}></span></BreadcrumbsItem>
 				</Breadcrumbs>
 			</div>
 			<WpImage className={styles.image} imageId={article.featured_media}></WpImage>
